@@ -11,6 +11,11 @@ ma.init_app(app)
 vehiculo_schema = VehiculoSchema()
 vehiculos_schema = VehiculoSchema(many=True)
 
+@app.route('/')
+def index():
+    return jsonify({"message": "Bienvenido a la API de Vehículos"}), 200
+
+
 # Crear base de datos
 @app.before_first_request
 def create_tables():
